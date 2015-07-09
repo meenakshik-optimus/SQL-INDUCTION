@@ -240,6 +240,7 @@ da int,
 gross_sal int
 );
 SELECT * from employee_salary;
+
 CREATE TRIGGER 
 triggergross
 ON employee_salary
