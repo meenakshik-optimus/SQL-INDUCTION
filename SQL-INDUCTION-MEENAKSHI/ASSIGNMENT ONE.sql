@@ -7,6 +7,7 @@ INSERT into employee values(2,'meena','kumari','developer',21,30000);
 INSERT into employee values(3,'anjali','kumari','developer',20,15000);
 INSERT into employee values(4,'smriti','sharma','tester',19,40000);
 INSERT into employee values(5,'sweta','singh','tester',37,60000);
+SELECT * FROM employee;
 
 --question 5(SQL SELECT)
 SELECT firstname,lastname,designatiopn from employee;
@@ -110,7 +111,7 @@ INSERT into LMN_emp values(2,'parveen','LMN');
 SELECT * from ABC_emp UNION SELECT * from XYZ_emp union SELECT * from LMN_emp;
 
 --question 26(SQL SELECT INTO)
-SELECT * INTO employee_backup from employee;
+SELECT * INTO back_db..employee_backup from employee;
 
 --question 27(SQL CREATE DB)
 CREATE database db1;
