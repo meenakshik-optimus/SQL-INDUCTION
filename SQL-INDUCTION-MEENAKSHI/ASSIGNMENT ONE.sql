@@ -144,8 +144,8 @@ select *,GETDATE() as currentDate from employee;
 --question 42(SQL NULLS)
 SELECT COUNT(salary) from employee;
 
---question 43(ISNULL())
-SELECT * from employee WHERE lastname ISNULL;
+--question 43(IS NULL)
+SELECT * from employee WHERE lastname IS NULL;
 
 --question 44(SQL DATA TYPES)
 ALTER TABLE employee_slabs add pf float;
@@ -155,7 +155,9 @@ UPDATE employee_slabs set pf=(SELECT ROUND(gross*12.5/100,2));
 SELECT * from employee WHERE salary>(SELECT AVG(salary) from employee);
 
 --question 47(SQL COUNT())
-SELECT department.department_id,department.department_name,COUNT(employee.department_id) as number_of_employees from employee LEFT JOIN department on employee.department_id=department.department_id GROUP BY department.department_id,department.department_name;
+SELECT department.department_id,department.department_name,COUNT(employee.department_id) as 
+number_of_employees from employee LEFT JOIN department on employee.department_id=department.department_id 
+GROUP BY department.department_id,department.department_name;
 
 --question 48(SQL MAX())
 SELECT * from employee WHERE salary<(SELECT MAX(salary) from employee);
@@ -167,10 +169,14 @@ SELECT * from employee WHERE salary>(SELECT MIN(salary) from employee);
 SELECT SUM(salary) AS TotalSalary from employee;
 
 --question 51(SQL GROUP BY)
-SELECT department.department_id,department.department_name,COUNT(employee.department_id) as number_of_employees from employee LEFT JOIN department on employee.department_id=department.department_id GROUP BY department.department_id,department.department_name;
+SELECT department.department_id,department.department_name,COUNT(employee.department_id)
+ as number_of_employees from employee LEFT JOIN department on employee.department_id=department.department_id 
+ GROUP BY department.department_id,department.department_name;
 
 --question 52(SQL HAVING)
-SELECT department.department_id,department.department_name,COUNT(employee.department_id) as number_of_employees from employee LEFT JOIN department on employee.department_id=department.department_id GROUP BY department.department_id,department.department_name having COUNT(employee.department_id)>3;
+SELECT department.department_id,department.department_name,COUNT(employee.department_id) as number_of_employees 
+from employee LEFT JOIN department on employee.department_id=department.department_id 
+GROUP BY department.department_id,department.department_name having COUNT(employee.department_id)>3;
 
 --question 53(SQL UPPER())
 SELECT UPPER(lastname),firstname from employee;
